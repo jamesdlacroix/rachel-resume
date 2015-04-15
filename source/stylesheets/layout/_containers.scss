@@ -1,0 +1,84 @@
+// General Containers
+
+.l-constrained {
+  @include outer-container;
+  padding-right: $page-gutter;
+  padding-left: $page-gutter;
+}
+
+.l-section {
+  @include row;
+}
+
+.l-main {
+  @include media-ie($breakpoint-ipad) {
+    @include span-columns(8);
+  }
+}
+
+.l-sidebar {
+  @include media-ie($breakpoint-ipad) {
+    @include span-columns(4);
+  }
+}
+
+@mixin ipad-layout {
+
+  .l-contact-item {
+    @include span-columns(4);
+  }
+
+  .l-leadership {
+    @include span-columns(6);
+    @include omega(2n);
+  }
+
+} // @mixin ipad-layout
+
+@mixin desktop-layout {
+
+  .l-titling {
+    @include span-columns(3);
+  }
+
+  .l-content {
+    @include span-columns(9);
+    @include omega;
+  }
+
+  .l-meta {
+    @include row;
+  }
+
+  .l-contact {
+    @include row;
+    margin-top: 2em;
+  }
+
+  .l-contact-item {
+    @include span-columns(3 of 9);
+  }
+
+  .l-position {
+    @include span-columns(6 of 9);
+  }
+
+  .l-timeframe{
+    @include span-columns(3 of 9);
+    @include omega;
+  }
+
+} // @mixin layout
+
+@include media($breakpoint-ipad) {
+  @include ipad-layout;
+}
+
+@include media($breakpoint-desktop) {
+  @include desktop-layout;
+}
+
+.old-ie {
+  @include ipad-layout;
+  @include desktop-layout;
+} // .old-ie
